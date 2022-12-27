@@ -1,6 +1,7 @@
 package main
 
 import (
+	_ "fiber-layout/conf"
 	"fiber-layout/routers"
 	"github.com/gofiber/fiber/v2"
 	"log"
