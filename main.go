@@ -2,6 +2,7 @@ package main
 
 import (
 	_ "fiber-layout/conf"
+	_ "fiber-layout/initalize"
 	"fiber-layout/routers"
 	"github.com/gofiber/fiber/v2"
 	"github.com/gofiber/fiber/v2/middleware/cors"

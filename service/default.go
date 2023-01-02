@@ -1,6 +1,7 @@
 package service
 
 import (
+	"fiber-layout/models"
 	v1 "fiber-layout/validator/form"
 	"fmt"
 )
@@ -17,7 +18,10 @@ func (t *Default) Register(loginForm v1.Register) (string, error) {
 	return msg, nil
 }
 
-func (t *Default) Login(loginForm v1.Login) (string, error) {
-	msg := fmt.Sprintf("✋ ---- %s", loginForm.PassWord)
-	return msg, nil
+func (t *Default) Login(loginForm v1.Login) ([]models.SysUser, error) {
+	list, err := models.NewSysUser().GetList()
+	if err != nil {
+		return nil, err
+	}
+	return list, nil
 }

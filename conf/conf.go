@@ -8,7 +8,7 @@ import (
 
 func init() {
 	conf := Conf{}
-	println("---", conf.InitConfigYaml())
+	conf.InitConfigYaml()
 }
 
 type Conf struct {
@@ -48,7 +48,10 @@ type Conf struct {
 	Debug bool `yaml:"debug"`
 }
 
-func (t *Conf) InitConfigYaml() *Conf {
+// Config 全局config
+var Config = &Conf{}
+
+func (t *Conf) InitConfigYaml() {
 	// 读取配置文件
 	content, err := ioutil.ReadFile("./config.dev.yaml") // 本地配置
 	//content, err := ioutil.ReadFile("./config.pord.yaml") // 线上配置
@@ -61,6 +64,5 @@ func (t *Conf) InitConfigYaml() *Conf {
 	} else {
 		fmt.Println("读取成功", t)
 	}
-
-	return t
+	Config = t
 }
