@@ -1,24 +1,16 @@
 package routers
 
 import (
-	"fiber-layout/controllers"
+	"fiber-layout/controllers/v1"
 	"github.com/gofiber/fiber/v2"
 )
 
 func SetRoute(app *fiber.App) {
-	main := controllers.NewDefaultController()
-	// GET /api/register
-	app.Get("/api/*", main.Api)
+	main := v1.NewDefaultController()
+	// GET /register 	get
+	app.Get("/register", main.Register)
 
-	// GET /flights/LAX-SFO
-	app.Get("/flights/:from-:to", main.Flights)
+	// GET /login 	json
+	app.Post("/login", main.Login)
 
-	// GET /dictionary.txt
-	app.Get("/:file.:ext", main.File)
-
-	// GET /john/75
-	app.Get("/:name/:age/:gender?", main.Gender)
-
-	// GET /john
-	app.Get("/:name", main.Name)
 }

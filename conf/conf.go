@@ -53,7 +53,7 @@ func (t *Conf) InitConfigYaml() *Conf {
 	content, err := ioutil.ReadFile("./config.dev.yaml") // 本地配置
 	//content, err := ioutil.ReadFile("./config.pord.yaml") // 线上配置
 	if err != nil {
-		panic("解析config.yaml读取错误")
+		panic("读取 config.yaml 读取错误")
 	}
 	// yaml.Unmarshal 解析配置 到结构体
 	if yaml.Unmarshal(content, t) != nil {
