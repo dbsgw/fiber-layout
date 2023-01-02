@@ -20,6 +20,7 @@ type Conf struct {
 		DoMain string `yaml:"domain"`
 	}
 	Mysql struct {
+		Enable   bool   `yaml:"enable"`
 		Host     string `yaml:"host"`
 		Port     string `yaml:"port"`
 		User     string `yaml:"user"`
@@ -27,8 +28,10 @@ type Conf struct {
 		DbName   string `yaml:"dbname"`
 	}
 	Redis struct {
-		Name     string `yaml:"name"`
-		Db       int    `yaml:"db"`
+		Enable   bool   `yaml:"enable"`
+		Host     string `yaml:"host"`
+		Port     string `yaml:"port"`
+		Database int    `yaml:"database"`
 		Password string `yaml:"password"`
 	}
 	Zap struct {

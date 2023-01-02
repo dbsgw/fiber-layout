@@ -5,16 +5,19 @@ app:
 
 # mysql配置
 mysql:
-  user: admin_nuzn
-  password: EjYDNctZfkXTEMdF
+  enable: true
+  user: root
+  password: 123456
   host: 127.0.0.1
   port: 3306
   dbname: admin_nuzn
 
 # redis配置
 redis:
-  name: "127.0.0.1:6379"
-  db: 1
+  enable: true
+  host: "127.0.0.1"
+  port: "6379"
+  database: 1
   password: ""
 
 # 日志配置
