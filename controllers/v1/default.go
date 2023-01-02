@@ -26,9 +26,9 @@ func (t *DefaultController) Register(c *fiber.Ctx) error {
 	// 实际业务调用
 	api, err := service.NewDefaultService().Register(loginForm)
 	if err != nil {
-		return err
+		return c.JSON(t.Fail(err))
 	}
-	return c.SendString(api) // => ✋ register
+	return c.JSON(t.Ok(api)) // => ✋ register
 }
 
 func (t *DefaultController) Login(c *fiber.Ctx) error {
@@ -41,7 +41,7 @@ func (t *DefaultController) Login(c *fiber.Ctx) error {
 	// 实际业务调用
 	api, err := service.NewDefaultService().Login(loginForm)
 	if err != nil {
-		return err
+		return c.JSON(t.Fail(err, 309))
 	}
-	return c.SendString(api) // => ✋ register
+	return c.JSON(t.Ok(api)) // => ✋ Login
 }
