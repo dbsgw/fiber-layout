@@ -1,16 +1,17 @@
 package routers
 
 import (
-	"fiber-layout/controllers/v1"
+	v1 "fiber-layout/controllers/v1"
 	"github.com/gofiber/fiber/v2"
 )
 
 func SetRoute(app *fiber.App) {
-	main := v1.NewDefaultController()
-	// GET /register 	get
-	app.Get("/register", main.Register)
 
+	main := v1.NewDefaultController()
+	group := app.Group("/v1")
+	// GET /register 	get
+	group.Get("/register", main.Register)
 	// GET /login 	json
-	app.Post("/login", main.Login)
+	group.Post("/login", main.Login)
 
 }
